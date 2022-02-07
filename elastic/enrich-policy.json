@@ -1,0 +1,7 @@
+{
+    "match": {
+      "indices": "signatures",
+      "match_field": "sig_id",
+      "enrich_fields": ["name", "accuracy", "risk","cve","hasCve",  "signatureType", "attackType.name","systems.name"]
+    }
+  }
