@@ -131,28 +131,34 @@ To deploy the Grafana Dashboards goto `Import Dashboard` and input the Dashboard
 > - asdasd
 > - asdasdsa
 
-<img src="https://github.com/skenderidis/nap-dashboard/blob/main/images/nap1.png"/>
-
+<p align="center">
+<img width="960" src="https://github.com/skenderidis/nap-dashboard/blob/main/images/nap1.png"/>
+</p>
 
 ### Attack Signature Dashboard
 > Asdasdasdasdasd
 > - asdasd
 > - asdasdsa
 
-<img src="https://github.com/skenderidis/nap-dashboard/blob/main/images/attack-signatures-1.png"/>
-
+<p align="center">
+<img width="960" src="https://github.com/skenderidis/nap-dashboard/blob/main/images/attack-signatures-1.png"/>
+</p>
 
 ### Bot Dashboard
 > Asdasdasdasdasd
 > - asdasd
 > - asdasdsa
 
-<img src="https://github.com/skenderidis/nap-dashboard/blob/main/images/bot-1.png"/>
+<p align="center">
+<img width="960" src="https://github.com/skenderidis/nap-dashboard/blob/main/images/bot-1.png"/>
+</p>
 
 ### SupportID Dashboard
 > Asdasdasdasdasd
 > - asdasd
 > - asdasdsa
+<p align="center">
+  <img width="960" src="https://github.com/skenderidis/nap-dashboard/blob/main/images/support1.png">
+</p>
 
-<img src="https://github.com/skenderidis/nap-dashboard/blob/main/images/support1.png"/>
 
