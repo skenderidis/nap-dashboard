@@ -1,7 +1,7 @@
 
 
 
-<a href="http://wwww.com"><img src="https://avatars1.githubusercontent.com/u/?v=3&s=200" title="FVCproductions" alt="FVCproductions"></a>
+<img src="https://github.com/skenderidis/nap-dashboard/blob/main/images/attack-signatures-0.png"/>
 
 
 
@@ -134,12 +134,6 @@ python3 upload-signatures.py signature-report.json 192.168.2.103
 ```
 
 
-
 ---
 
-## Examples
-
-
-## FAQ
-
-- ** test *test* test?**
+## Dashboards
