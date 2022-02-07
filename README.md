@@ -116,10 +116,10 @@ To deploy the Grafana Dashboards goto `Import Dashboard` and input the Dashboard
 
 | Dashboard Name  | Dashboard ID |  Grafana Source | 
 | ------------- | ------------- |------------- |
-| NGINX NAP Main Dashboard | 11111  | WAF-Logs |
-| NGINX NAP Support-ID Dashboard | 11111  | WAF-Decoded |
-| NGINX NAP Attack Signatures Dashboard | 11111  | WAF-Decoded |
-| NGINX NAP BOT Dashboard | 11111  | WAF-Decoded |
+| NGINX NAP Main Dashboard | 15675  | WAF-Logs |
+| NGINX NAP Support-ID Dashboard | 15676  | WAF-Decoded |
+| NGINX NAP Attack Signatures Dashboard | 15677  | WAF-Decoded |
+| NGINX NAP BOT Dashboard | 15678  | WAF-Decoded |
 
 
 ---
