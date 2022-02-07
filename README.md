@@ -1,26 +1,16 @@
-
-
-
-<img src="https://github.com/skenderidis/nap-dashboard/blob/main/images/attack-signatures-0.png"/>
-
-
-
 # NAP Dashboard
 
 > This is Grafana based Dashboard for NGINX NAP Reporting. The overall solution uses Logstash to receive logs from NGINX App Protect, process them, decode them and finally store them in Elasticsearch indexes. Grafana help us visualize these logs.
 
+<img src="https://github.com/skenderidis/nap-dashboard/blob/main/images/attack-signatures-0.png"/>
 
 
 
 ## Table of Contents
 
 - [Installation](#installation)
-- [Features](#features)
-- [Contributing](#contributing)
-- [Team](#team)
-- [FAQ](#faq)
+- [Dashboards](#features)
 - [Support](#support)
-- [License](#license)
 
 ---
 
@@ -32,12 +22,12 @@ To run this Dashboard you will need to deploy following opensource solutions.
 - Grafana
 - Docker
 - Python 3.7+
+
 Steps will be provided on how to deploy all of the software in a docker environment. It is assumed that Docker and Python is already installed and configured on the system
 
 ### Clone the repo
 
-Clone this repo to your local machine using `https://github.com/skenderidis/nap-dashboard`
-Go to the directory of the repo
+Clone this repo to your local machine using `https://github.com/skenderidis/nap-dashboard` and the working directory should be `nap-dashboard`
 
 ```shell
 cd nap-dashboard
@@ -52,7 +42,7 @@ docker run -e TZ=Asia/Dubai --name logstash --net elastic -p 515:515 -it --rm -v
 
 ```
 >  - Change the timezone accordingly `TZ=Asia/Dubai`
->  - The port where Logstash will be listeting is 515.
+>  - The port that Logstash will be listeting to is 515.
 
 
 ### Configure Elasticsearch
@@ -113,25 +103,23 @@ The working directory should be `grafana`
 
 1. Setup Grafana source - Elastic WAF Index
 ```shell
-curl -d "@waf-index.json" -H 'Content-Type: application/json' -u 'admin:admin' -X POST 'http://192.168.2.103:3000/api/datasources/'
+curl -d "@grafana/DS-waf-index.json" -H 'Content-Type: application/json' -u 'admin:admin' -X POST 'http://192.168.2.103:3000/api/datasources/'
 ```
 
 2. Setup Grafana source - Elastic WAF Decoded Index
 ```shell
-curl -d "@waf-decoded-index.json" -H 'Content-Type: application/json' -u 'admin:admin' -X POST 'http://192.168.2.103:3000/api/datasources/'
+curl -d "@grafana/DS-waf-decoded-index.json" -H 'Content-Type: application/json' -u 'admin:admin' -X POST 'http://192.168.2.103:3000/api/datasources/'
 ```
 
+3. Deploy Grafana Dashboards 
+To deploy the Grafana Dashboards goto `Import Dashboard` and input the Dashboard ID (as per the following table) on `Import via grafana.com` tab. 
 
-2. Setup Grafana Dashboard - Main Dashboard
-```shell
-curl -d "@waf-decoded-index.json" -H 'Content-Type: application/json' -u 'admin:admin' -X POST 'http://192.168.2.103:3000/api/datasources/'
-```
-
-3. Populate the Signature Index with the data extracted from the signature-report tool. You can repeat this process to update the signatures. 
-```shell
-cd signatures
-python3 upload-signatures.py signature-report.json 192.168.2.103
-```
+| Dashboard Name  | Dashboard ID |  Grafana Source | 
+| ------------- | ------------- |------------- |
+| NGINX NAP Main Dashboard | 11111  | WAF-Logs |
+| NGINX NAP Support-ID Dashboard | 11111  | WAF-Decoded |
+| NGINX NAP Attack Signatures Dashboard | 11111  | WAF-Decoded |
+| NGINX NAP BOT Dashboard | 11111  | WAF-Decoded |
 
 
 ---
