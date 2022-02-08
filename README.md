@@ -145,18 +145,32 @@ To deploy the Grafana Dashboards goto `Import Dashboard` and input the Dashboard
 </p>
 
 ### Bot Dashboard
-> Asdasdasdasdasd
-> - asdasd
-> - asdasdsa
+The Bot Dashboard provides all details for the Bot activity that was logged by NGINX App Protect. Some of the graphs/tables included in this dashboard are:
+- Bot Types
+- Bot Categories
+- Bot Activity over time
+- Mitigated Bots 
+- Bot activity per URL
+- Bot activity per IP/Country
+- Bot activity per Policy/Device
+- Logs
 
 <p align="center">
 <img width="960" src="https://github.com/skenderidis/nap-dashboard/blob/main/images/bot-1.png"/>
 </p>
 
 ### SupportID Dashboard
-> Asdasdasdasdasd
-> - asdasd
-> - asdasdsa
+The SupportID Dashboard provides all details for a specific transaction that was logged by NGINX App Protect. These include the following:
+- Client/Server Information (Client IP/Port, Server IP/Port, X-Forwared-For, etc)
+- Violation Details (Outcome, Request Status, Outcome Reson, etc)
+- Bot Details (Bot Classm Bot Category, Bit Signature, etc)
+- Device Details (NAP Device name, Vritual Server Name)
+- Signatures Triggered
+- Treat Campaign triggered
+- Violation list
+- Many more
+It also includes both the original and decoded Elasticsearch indices for better troubleshooting.
+
 <p align="center">
   <img width="960" src="https://github.com/skenderidis/nap-dashboard/blob/main/images/support1.png">
 </p>
