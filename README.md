@@ -66,15 +66,13 @@ In order to enrich the logs that Elasticsearch is receiving from NAP with inform
 Otherwise you can use the `signature-report.json` file that can be found on the `signatures` folder and contains the latest signatures.
 
 ```shell
-cd signatures
-python3 upload-signatures.py signature-report.json 192.168.2.103
+python3 signatures/upload-signatures.py signatures/signature-report.json 192.168.2.103
 ```
 If successfull it will take around 1 min to push all signatures to elastic. Expect to see multiple responses of the following: `{"_index":"signatures","_type":"_doc","_id":"200000001","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":7553,"_primary_term":1}`
 
 
 4. Create template for NAP indexes Index Mapping
 ```shell
-cd ..
 curl -d "@elastic/template-mapping.json" -H 'Content-Type: application/json' -X PUT 'http://192.168.2.103:9200/_template/waf_template?include_type_name'
 ```
 Expected Response: `{"acknowledged":true}`
