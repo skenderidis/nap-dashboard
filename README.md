@@ -112,7 +112,7 @@ curl -d "@grafana/DS-waf-decoded-index.json" -H 'Content-Type: application/json'
 
 To deploy the Grafana Dashboards goto `Import Dashboard` and input the Dashboard ID (as per the following table) on `Import via grafana.com` tab. 
 <p align="center">
-<img width="640"  src="https://github.com/skenderidis/nap-dashboard/blob/main/images/grafanaid.png"/>       
+<img width="500"  src="https://github.com/skenderidis/nap-dashboard/blob/main/images/grafana-id.png"/>       
 </p>
 
 | Dashboard Name                        | Dashboard ID  |  Grafana Source        |   Grafana Website                                                  | 
