@@ -111,7 +111,9 @@ curl -d "@grafana/DS-waf-decoded-index.json" -H 'Content-Type: application/json'
 3. Deploy Grafana Dashboards.
 
 To deploy the Grafana Dashboards goto `Import Dashboard` and input the Dashboard ID (as per the following table) on `Import via grafana.com` tab. 
-<img src="https://github.com/skenderidis/nap-dashboard/blob/main/images/grafanaid.png"/>       
+<p align="center">
+<img width="640"  src="https://github.com/skenderidis/nap-dashboard/blob/main/images/grafanaid.png"/>       
+</p>
 
 | Dashboard Name                        | Dashboard ID  |  Grafana Source        |   Grafana Website                                                  | 
 | -------------                         | :---:         |-------------           |  :---:                                                             | 
@@ -128,7 +130,7 @@ The easiest way to modify the links is the following.
 
 #### Note 2: Modifying the links for other Dashboards.
 On the Main dashboard (NAP) there are links to the other 3 dashboards. Currently the links point to the demo URL for these dashboards. Please edit the `Violations table` and modify the links that have been highlighted on the image below with Red
-<img src="https://github.com/skenderidis/nap-dashboard/blob/main/images/datalinks.png"/>          |
+<img width="800" src="https://github.com/skenderidis/nap-dashboard/blob/main/images/datalinks.png"/>          |
 
 
 ---
