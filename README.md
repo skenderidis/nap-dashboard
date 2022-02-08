@@ -78,19 +78,19 @@ curl -d "@elastic/template-mapping.json" -H 'Content-Type: application/json' -X 
 Expected Response: `{"acknowledged":true}`
 
 
-5. Create enrich policy for the NAP/Signatures Indices
+5. Create enrich policy for the NAP/Signatures Indices.
 ```shell
 curl -d "@elastic/enrich-policy.json" -H 'Content-Type: application/json' -X PUT 'http://192.168.2.103:9200/_enrich/policy/signatures-policy'
 ```
 Expected Response: `{"acknowledged":true}`
 
-6. Deploy enrich policy 
+6. Deploy enrich policy.
 ```shell
 curl -X POST 'http://192.168.2.103:9200/_enrich/policy/signatures-policy/_execute'
 ```
 Expected Response: `{"acknowledged":true}`
 
-7. Create Ingest Pipeline
+7. Create Ingest Pipeline.
 ```shell
 curl -d "@elastic/sig-lookup.json" -H 'Content-Type: application/json' -X PUT 'http://192.168.2.103:9200/_ingest/pipeline/sig_lookup'
 ```
@@ -98,18 +98,20 @@ Expected Response: `{"acknowledged":true}`
 
 
 ### Configure Grafana
-1. Setup Grafana source - Elastic WAF Index
+1. Setup Grafana source - Elastic WAF Index.
 ```shell
 curl -d "@grafana/DS-waf-index.json" -H 'Content-Type: application/json' -u 'admin:admin' -X POST 'http://192.168.2.103:3000/api/datasources/'
 ```
 
-2. Setup Grafana source - Elastic WAF Decoded Index
+2. Setup Grafana source - Elastic WAF Decoded Index.
 ```shell
 curl -d "@grafana/DS-waf-decoded-index.json" -H 'Content-Type: application/json' -u 'admin:admin' -X POST 'http://192.168.2.103:3000/api/datasources/'
 ```
 
-3. Deploy Grafana Dashboards 
+3. Deploy Grafana Dashboards.
+
 To deploy the Grafana Dashboards goto `Import Dashboard` and input the Dashboard ID (as per the following table) on `Import via grafana.com` tab. 
+<img src="https://github.com/skenderidis/nap-dashboard/blob/main/images/grafanaid.png"/>       
 
 | Dashboard Name                        | Dashboard ID  |  Grafana Source        |   Grafana Website                                                  | 
 | -------------                         | :---:         |-------------           |  :---:                                                             | 
@@ -199,4 +201,8 @@ It also includes both the original and decoded Elasticsearch indices for better 
   <img width="960" src="https://github.com/skenderidis/nap-dashboard/blob/main/images/support1.png">
 </p>
 
+
+## Support
+
+Please open a GitHub issue for any problem or enhancement you need.
 
