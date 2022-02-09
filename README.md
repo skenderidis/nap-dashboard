@@ -1,4 +1,4 @@
-# NAP Dashboard
+# NAP Dashboard (work in progress)
 
 > This is a Grafana based dashboard for NGINX App Protect (NAP). The overall solution uses Logstash to receive logs from NGINX App Protect, process them and finally store them in Elasticsearch indexes. Grafana helps us visualize those logs.
 
