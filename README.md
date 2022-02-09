@@ -57,7 +57,7 @@ Expected Response: `{"acknowledged":true,"shards_acknowledged":true,"index":"sig
 
 2. Create index mapping for signature index
 ```shell
-curl -d "@elastic/signature_mapping.json" -H 'Content-Type: application/json' -X PUT 'http://192.168.2.103:9200/signatures/_mapping/'
+curl -d "@elastic/signatures-mapping.json" -H 'Content-Type: application/json' -X PUT 'http://192.168.2.103:9200/signatures/_mapping/'
 ```
 Expected Response: `{"acknowledged":true}`
 
@@ -88,7 +88,7 @@ Expected Response: `{"acknowledged":true}`
 ```shell
 curl -X POST 'http://192.168.2.103:9200/_enrich/policy/signatures-policy/_execute'
 ```
-Expected Response: `{"acknowledged":true}`
+Expected Response: `{"status":{"phase":"COMPLETE"}}`
 
 7. Create Ingest Pipeline.
 ```shell
