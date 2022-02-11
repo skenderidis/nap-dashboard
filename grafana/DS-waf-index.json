@@ -5,7 +5,7 @@
     "typeName": "Elasticsearch",
     "typeLogoUrl": "public/app/plugins/datasource/elasticsearch/img/elasticsearch.svg",
     "access": "proxy",
-    "url": "http://elasticsearch2:9200",
+    "url": "http://elasticsearch:9200",
     "password": "",
     "user": "",
     "database": "waf-logs*",
