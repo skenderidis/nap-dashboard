@@ -57,7 +57,7 @@ Expected Response: `{"acknowledged":true,"shards_acknowledged":true,"index":"sig
 
 2. Create index mapping for signature index
 ```shell
-curl -d "@elastic/signatures-mapping.json" -H 'Content-Type: application/json' -X PUT 'http://localhost:9200/signatures/_mapping/'
+curl -d "@elastic/signature-mapping.json" -H 'Content-Type: application/json' -X PUT 'http://localhost:9200/signatures/_mapping/'
 ```
 Expected Response: `{"acknowledged":true}`
 
