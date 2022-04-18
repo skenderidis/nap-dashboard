@@ -66,7 +66,7 @@ In order to enrich the logs that Elasticsearch is receiving from NAP with inform
 Otherwise you can use the `signature-report.json` file that can be found on the `signatures` folder and contains the latest signatures.
 
 ```shell
-python3 signatures/upload-signatures.py signatures/signature-report.json localhost
+python3 signatures/upload-signatures.py signatures/signatures-report.json localhost
 ```
 If successful it will take around 1 min to push all signatures to elastic. Expect to see multiple responses of the following: `{"_index":"signatures","_type":"_doc","_id":"200000001","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":7553,"_primary_term":1}`
 
