@@ -1,5 +1,4 @@
-# NGINX App Protect WAF Dashboard (work in progress)
-
+# NGINX App Protect WAF Dashboard
 > This is a Grafana based dashboard for NGINX App Protect WAF (NAP). The overall solution uses Logstash to receive logs from NGINX App Protect WAF, process them and finally store them in Elasticsearch indexes. Grafana helps us visualize those logs.
 
 <img src="images/attack-signatures-0.png"/>
@@ -27,7 +26,7 @@ Steps will be provided on how to deploy all of the software in a Docker environm
 
 ### Clone the repo
 
-Clone this repo to your local machine using `https://github.com/skenderidis/nap-dashboard` and switch the working directory to be `nap-dashboard`
+Clone this repo to your local machine `https://github.com/skenderidis/nap-dashboard` and switch the working directory to be `nap-dashboard`
 
 ```shell
 git clone https://github.com/skenderidis/nap-dashboard

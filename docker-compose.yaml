@@ -18,7 +18,7 @@ services:
     environment:
       - TZ
   grafana:
-    image: grafana/grafana-oss:9.1.6-ubuntu
+    image: grafana/grafana-oss:9.2.1
     ports:
       - 3000:3000
     environment:
