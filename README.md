@@ -121,17 +121,6 @@ To deploy the Grafana Dashboards goto `Import Dashboard` and input the Dashboard
 | NGINX NAP Attack Signatures Dashboard | 15677         | WAF-Decoded            | <a href="https://grafana.com/grafana/dashboards/15677"> Link </a>  |
 | NGINX NAP BOT Dashboard               | 15678         | WAF-Logs               | <a href="https://grafana.com/grafana/dashboards/15678"> Link </a>  |
 
-#### Note 1: Modifying the links for Support ID Dashboards.
-The dashboards (NAP, Attack Signatures and Bot) have links so that you can click on the supportID from the logs and navigate to the SupportID dashboard having the supportID that you click as the selected filter. Currently the links point to the IP address `192.168.2.103` and this needs to change with the actual IP address of your Grafana deployment.
-The easiest way to modify the links is the following.
- - Go to the dashboard settings and select the JSON Model.
- - Search for 192.168.2.103 and replace it with the actual IP
-
-#### Note 2: Modifying the links for other Dashboards.
-On the Main dashboard (NAP) there are links to the other 3 dashboards. Currently the links point to the demo URL for these dashboards. Please edit the `Violations table` and modify the links that have been highlighted on the image below with Red
-<img width="800" src="images/datalinks.png"/>          |
-
-
 ---
 
 ## Dashboards
