@@ -187,8 +187,6 @@ filter {
                     h.clear()
                     if violation[x].has_key?('cookie')
                       violation[x]['cookie_decoded']=URI::encode(Base64.decode64(violation[x]['cookie']))
-                      violation[x]['cookie_name']=violation[x]['cookie']
-                      violation[x].delete('cookie')
                     end
                     
                     violation[x].each do |pair|
@@ -203,8 +201,6 @@ filter {
                     h.clear()
                     if violation[x].has_key?('header')
                       violation[x]['header_decoded']=URI::encode(Base64.decode64(violation[x]['header']))
-                      violation[x]['header_name']=violation[x]['header']
-                      violation[x].delete('header')                      
                     end
                     
                     violation[x].each do |pair|
@@ -484,17 +480,19 @@ filter {
                 while x < violation.length
                   case violation[x]['viol_name']
                     
-                  when 'VIOL_COOKIE_LENGTH'
-                    violation[x]['cookie_name']=violation[x]['cookie']
-                    violation[x].delete('cookie')
-                    needEvent = true
-
-                  when 'VIOL_HEADER_LENGTH'
-                    violation[x]['header_name']=violation[x]['header']
-                    violation[x].delete('header')
-                    needEvent = true
+                  when 'VIOL_HEADER_METACHAR'
+                    header_name = ''
+                    header_value = ''
+                    if match = Base64.decode64(violation[x]['header']).match(/^([^:]+):\s*(.+)/)
+                      header_name, header_value = match.captures
+                    end
+                    if violation[x]['header'].is_a?(String)
+                      needEvent = true
+                      violation[x]['header']={}
+                      violation[x]['header']['header_name'] = URI::encode(header_name)
+                      violation[x]['header']['header_value'] = URI::encode(header_value)
+                    end
                   end
-
                   x = x + 1
                 end
                 if needEvent
