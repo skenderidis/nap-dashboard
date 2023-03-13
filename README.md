@@ -1,4 +1,4 @@
-> **Note:** This project has been archieved and moved to: https://github.com/f5devcentral/nap-policy-management
+## **Important Note:** This project has been archieved and moved to: https://github.com/f5devcentral/nap-policy-management
 
 # NGINX App Protect WAF Dashboard
 > This is a Grafana based dashboard for NGINX App Protect WAF (NAP). The overall solution uses Logstash to receive logs from NGINX App Protect WAF, process them and finally store them in Elasticsearch indexes. Grafana helps us visualize those logs.
