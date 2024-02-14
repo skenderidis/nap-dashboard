@@ -1,6 +1,6 @@
 {
   "orgId": 1,
-  "name": "NAP-logs",
+  "name": "NAP-L7-Dos",
   "type": "elasticsearch",
   "typeName": "Elasticsearch",
   "typeLogoUrl": "public/app/plugins/datasource/elasticsearch/img/elasticsearch.svg",
@@ -8,7 +8,7 @@
   "url": "http://elasticsearch:9200",
   "password": "",
   "user": "",
-  "database": "nginx-nap-logs-*",
+  "database": "nginx-l7dos-*",
   "basicAuth": false,
   "isDefault": false,
   "jsonData": {
