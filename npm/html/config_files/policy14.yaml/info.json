@@ -1,0 +1,9 @@
+{
+    "name": "policy14.yaml",
+    "nap_name": "policy14 (Example - Delete)",
+    "enforcement": "transparent",
+    "type": "gitea",
+    "format": "YAML",
+    "uuid": "13d3b62638943bf8122fcafefba34ccc",
+    "git": "http:\/\/192.168.2.100:4000\/kostas\/nap\/?ref=main"
+}

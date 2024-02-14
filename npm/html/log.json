@@ -1,0 +1,229 @@
+{
+    "client_application": "N/A",
+    "violation_rating": "5",
+    "outcome": "REJECTED",
+    "sig_ids": [
+        "200001475",
+        "200000098",
+        "200007016",
+        "200000190",
+        "200100055",
+        "200000097",
+        "200000091",
+        "200021132"
+    ],
+    "logsource": "nginx",
+    "bot_anomalies": "N/A",
+    "violation_details": {
+        "request-violations": {
+            "violation": [
+                {
+                    "context": "url",
+                    "sig_data": [
+                        {
+                            "blocking_mask": "3",
+                            "kw_data": {
+                                "offset": "0",
+                                "length": "9",
+                                "buffer": "L3Rlc3QucGhw"
+                            },
+                            "sig_id": "200100055"
+                        },
+                        {
+                            "blocking_mask": "3",
+                            "kw_data": {
+                                "offset": "41",
+                                "length": "7",
+                                "buffer": "WC1Gb3J3YXJkZWQtRm9yOiA0NS42Ni44My4xMjMNCkhvc3Q6IHd3dy48c2NyaXB0Pi50ZXN0LmNvbQ0KVXNl"
+                            },
+                            "sig_id": "200000097"
+                        },
+                        {
+                            "blocking_mask": "3",
+                            "kw_data": {
+                                "offset": "42",
+                                "length": "7",
+                                "buffer": "WC1Gb3J3YXJkZWQtRm9yOiA0NS42Ni44My4xMjMNCkhvc3Q6IHd3dy48c2NyaXB0Pi50ZXN0LmNvbQ0KVXNl"
+                            },
+                            "sig_id": "200000091"
+                        },
+                        {
+                            "blocking_mask": "3",
+                            "kw_data": {
+                                "offset": "21",
+                                "length": "23",
+                                "buffer": "dy48c2NyaXB0Pi50ZXN0LmNvbQ0KVXNlci1BZ2VudDogQXBhY2hlQmVuY2gvMi4zDQpBY2NlcHQ6ICovKg0K"
+                            },
+                            "sig_id": "200021132"
+                        }
+                    ],
+                    "viol_name": "VIOL_ATTACK_SIGNATURE",
+                    "viol_index": "42"
+                },
+                {
+                    "sig_data": [
+                        {
+                            "blocking_mask": "2",
+                            "kw_data": {
+                                "offset": "0",
+                                "length": "10",
+                                "buffer": "c2Vjb25kPS4uL2tvc3Rhcw=="
+                            },
+                            "sig_id": "200007016"
+                        },
+                        {
+                            "blocking_mask": "2",
+                            "kw_data": {
+                                "offset": "7",
+                                "length": "3",
+                                "buffer": "c2Vjb25kPS4uL2tvc3Rhcw=="
+                            },
+                            "sig_id": "200000190"
+                        }
+                    ],
+                    "context": "parameter",
+                    "parameter_data": {
+                        "auto_detected_type": "alpha-numeric",
+                        "value": "Li4va29zdGFz",
+                        "name": "c2Vjb25k",
+                        "staging": "0",
+                        "enforcement_level": "global",
+                        "param_name_pattern": "*"
+                    },
+                    "staging": "0",
+                    "viol_name": "VIOL_ATTACK_SIGNATURE",
+                    "viol_index": "42"
+                },
+                {
+                    "sig_data": [
+                        {
+                            "blocking_mask": "3",
+                            "kw_data": {
+                                "offset": "13",
+                                "length": "7",
+                                "buffer": "cGFyYW1ldGVycz08L3NjcmlwdD4="
+                            },
+                            "sig_id": "200001475"
+                        },
+                        {
+                            "blocking_mask": "3",
+                            "kw_data": {
+                                "offset": "11",
+                                "length": "8",
+                                "buffer": "cGFyYW1ldGVycz08L3NjcmlwdD4="
+                            },
+                            "sig_id": "200000098"
+                        }
+                    ],
+                    "context": "parameter",
+                    "parameter_data": {
+                        "auto_detected_type": "alpha-numeric",
+                        "value": "PC9zY3JpcHQ+",
+                        "name": "cGFyYW1ldGVycw==",
+                        "staging": "0",
+                        "enforcement_level": "global",
+                        "param_name_pattern": "*"
+                    },
+                    "staging": "0",
+                    "viol_name": "VIOL_ATTACK_SIGNATURE",
+                    "viol_index": "42"
+                },
+                {
+                    "http_sub_violation_status": "262144",
+                    "http_sanity_checks_status": "262144",
+                    "http_sub_violation": "SG9zdCBoZWFkZXI6IHd3dy48c2NyaXB0Pi50ZXN0LmNvbQ==",
+                    "viol_name": "VIOL_HTTP_PROTOCOL",
+                    "viol_index": "14"
+                },
+                {
+                    "wildcard_entity": "*",
+                    "language_type": "4",
+                    "metachar_index": [
+                        "60",
+                        "62"
+                    ],
+                    "staging": "0",
+                    "parameter_data": {
+                        "auto_detected_type": "alpha-numeric",
+                        "enforcement_level": "global",
+                        "name": "cGFyYW1ldGVycw==",
+                        "value": "PC9zY3JpcHQ+"
+                    },
+                    "viol_name": "VIOL_PARAMETER_VALUE_METACHAR",
+                    "viol_index": "24"
+                }
+            ]
+        }
+    },
+    "x_forwarded_for_header_value": "45.66.83.123",
+    "uri": "/test.php",
+    "vs_name": "1-localhost:1-/",
+    "count": "1",
+    "timestamp": "Jan  6 22:10:34",
+    "@timestamp": "2022-01-06T18:10:34.000Z",
+    "policy_name": "app_protect_default_policy",
+    "violations": [
+        "HTTP protocol compliance failed",
+        "Illegal meta character in value",
+        "Attack signature detected",
+        "Violation Rating Threat detected",
+        "Bot Client Detected"
+    ],
+    "threat_campaign_names": [
+        "N/A"
+    ],
+    "enforced_bot_anomalies": "N/A",
+    "dest_port": "80",
+    "sig_names": [
+        "XSS script tag end (Parameter) (2)",
+        "XSS script tag (Parameter)",
+        "Directory Traversal attempt "
+    ],
+    "severity": 2,
+    "method": "GET",
+    "is_truncated": "false",
+    "request": "GET /test.php?parameters=</script>&second=../kostas HTTP/1.0\\r\\nX-Forwarded-For: 45.66.83.123\\r\\nHost: www.<script>.test.com\\r\\nUser-Agent: ApacheBench/2.3\\r\\nAccept: */*\\r\\n\\r\\n",
+    "@version": "1",
+    "source_host": "45.66.83.123",
+    "geoip": {
+        "country_name": "Italy",
+        "country_code3": "IT",
+        "timezone": "Europe/Rome",
+        "continent_code": "EU",
+        "location": {
+            "lat": 43.1479,
+            "lon": 12.1097
+        },
+        "latitude": 43.1479,
+        "longitude": 12.1097,
+        "ip": "45.66.83.123",
+        "country_code2": "IT"
+    },
+    "sig_cves": [
+        "N/A"
+    ],
+    "sub_violations": [
+        "HTTP protocol compliance failed:Bad host header value"
+    ],
+    "protocol": "HTTP",
+    "ip_client": "192.168.1.75",
+    "response_code": "0",
+    "date_time": "2022-01-06 22:10:33",
+    "host": "192.168.2.40",
+    "support_id": "7353528063639703069",
+    "bot_category": "DOS Tool",
+    "unit_hostname": "nginx",
+    "bot_signature_name": "ab",
+    "blocking_exception_reason": "N/A",
+    "severity_label": "Critical",
+    "outcome_reason": "SECURITY_WAF_VIOLATION",
+    "sig_set_names": [
+        "{Cross Site Scripting Signatures;High Accuracy Signatures}",
+        "{Cross Site Scripting Signatures;High Accuracy Signatures}",
+        "{Path Traversal Signatures}..."
+    ],
+    "request_status": "blocked",
+    "client_application_version": "N/A",
+    "client_class": "Malicious Bot",
+    "src_port": "53450"
+}

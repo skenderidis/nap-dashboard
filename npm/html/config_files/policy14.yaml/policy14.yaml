@@ -1,0 +1,22 @@
+policy:
+  applicationLanguage: utf-8
+  blocking-settings:
+    http-protocols:
+    - description: Host header contains IP address
+      enabled: false
+    violations:
+    - alarm: true
+      block: true
+      name: VIOL_CSRF
+  bot-defense:
+    settings:
+      isEnabled: true
+  csrf-protection:
+    enabled: true
+  enforcementMode: transparent
+  filetypes:
+  - allowed: true
+    name: binds
+  name: policy14
+  template:
+    name: POLICY_TEMPLATE_NGINX_BASE

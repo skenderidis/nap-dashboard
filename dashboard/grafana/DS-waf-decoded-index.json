@@ -1,0 +1,24 @@
+{
+    "orgId": 1,
+    "name": "WAF-Decoded",
+    "type": "elasticsearch",
+    "typeName": "Elasticsearch",
+    "typeLogoUrl": "public/app/plugins/datasource/elasticsearch/img/elasticsearch.svg",
+    "access": "proxy",
+    "url": "http://elasticsearch:9200",
+    "password": "",
+    "user": "",
+    "database": "waf-decoded-*",
+    "basicAuth": false,
+    "isDefault": false,
+    "jsonData": {
+        "dataLinks": [],
+        "esVersion": "7.10.0",
+        "includeFrozen": false,
+        "logLevelField": "",
+        "logMessageField": "",
+        "maxConcurrentShardRequests": 5,
+        "timeField": "@timestamp"
+    },
+    "readOnly": false
+}

@@ -1,0 +1,13 @@
+{
+    "processors" : [
+      {
+        "enrich" : {
+          "description": "Add 'signature' data based on 'sig_id'",
+          "policy_name": "signatures-policy",
+          "field" : "sig_id",
+          "target_field": "signature-details",
+          "max_matches": "1"
+        }
+      }
+    ]
+  }
