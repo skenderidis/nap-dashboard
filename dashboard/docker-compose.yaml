@@ -12,6 +12,16 @@ services:
       - "ES_JAVA_OPTS=-Xms3g -Xmx3g"
       - "xpack.security.enabled=false"
       - "xpack.security.enrollment.enabled=false"
+  logstash:
+    image: docker.elastic.co/logstash/logstash:8.10.4
+    restart: always
+    volumes:
+      - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf:ro
+    ports:
+      - 8515:8515
+    environment:
+      - TZ
+      - "LS_JAVA_OPTS=-Xms1g -Xmx1g"      
   kibana:
     image: docker.elastic.co/kibana/kibana:8.10.4
     restart: always
