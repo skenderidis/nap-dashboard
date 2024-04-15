@@ -1,0 +1,38 @@
+version: "2.4"
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.10.4
+    restart: always
+    ports:
+      - 9200:9200
+      - 9300:9300
+    environment:
+      - TZ
+      - "discovery.type=single-node"
+      - "ES_JAVA_OPTS=-Xms3g -Xmx3g"
+      - "xpack.security.enabled=false"
+      - "xpack.security.enrollment.enabled=false"
+  logstash:
+    image: docker.elastic.co/logstash/logstash:8.10.4
+    restart: always
+    volumes:
+      - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf:ro
+    ports:
+      - 8515:8515
+    environment:
+      - TZ
+      - "LS_JAVA_OPTS=-Xms1g -Xmx1g"      
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.10.4
+    restart: always
+    ports:
+      - 5601:5601
+    environment:
+      - TZ      
+    mem_limit: 1g
+  grafana:
+    image: grafana/grafana-oss:10.3.3
+    ports:
+      - 3000:3000
+    environment:
+      - TZ
