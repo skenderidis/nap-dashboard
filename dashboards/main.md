@@ -1,4 +1,4 @@
-# Attack Signature Dashboards
+# Main Dashboards
 
 ## Gif
 <p align="center">

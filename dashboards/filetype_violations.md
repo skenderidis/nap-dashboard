@@ -1,4 +1,4 @@
-# Attack Signature Dashboards
+# FileType Violations Dashboards
 
 ## Gif
 <p align="center">

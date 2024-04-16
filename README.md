@@ -22,7 +22,7 @@ To check which violations are currently supported with **json_log** field please
 Below, we outline the contents of the json_log field. Take a closer look on the following variables; `url`, `rawRequest.httpRequest` and the `violations`.
 
 <p align="center">
-<img width="720" src="images/json_log.png"/>
+<img src="images/json_log.png"/>
 </p>
 
 The `url` and `rawRequest.httpRequest` are Base64 encoded, while `violations` presents an array with each violation recorded on the transaction.
@@ -70,7 +70,7 @@ This is the main dashboard that provides an overview of all the violations that 
 <img width="720" src="images/main-1.png"/>
 </p>
 
-For more screenshots go of the **Main Dashboard** click [Here](dashboards/main.md)
+For more screenshots click [here](dashboards/main.md)
 
 ### Attack Signatures
 The Attack Signature dashboard provides details for all the signatures that triggered the `VIOL_ATTACK_SIGNATURE` violation
@@ -133,10 +133,10 @@ The SupportID Dashboard provides details for a specific transaction (SupportID) 
 - Many more
 
 <p align="center">
-  <img width="720" src="images/support1.png">
+  <img width="720" src="images/sid-1.png">
 </p>
 
-For more screenshots click [Here](dashboards/supprt_id.md)
+For more screenshots click [Here](dashboards/support_id.md)
 
 
 ## Installation
