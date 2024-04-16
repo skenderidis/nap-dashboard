@@ -1,42 +1,46 @@
-# NAP Dashboard
-This project makes it easier for SecOps teams to review and analyze NGINX APP Protect (NAP) violations with the use  of Grafana Dashboards.
+# NGINX APP Protect (NAP) Dashboard
+This project simplifies your SecOps team's workflow with the NGINX APP Protect (NAP) Dashboard, leveraging Grafana Dashboards for streamlined review and analysis of violations.
 
 <p align="center">
-<img width="720" src="images/grafana.gif"/>
+<img width="720" src="images/main.gif"/>
 </p>
 
-The solution uses Logstash/FluentD to ingest the logs from NAP instances, transforms them and finally store them in Elasticsearch indexes. Grafana is used as the analytics platform that connects to the datasource (Elasticsearch) and provides interactive dashboards.
-
-> **Note**: *We have provided 2 different log ingestion/transformation solutions (**FluentD** or **Logstash**) that you can choose from and we will provide configuration examples for both options.*
+The solution employs an ingestion solution (**FluentD** or **Logstash**) for seamless log ingestion from NAP instances, transforming the data, and storing it in Elasticsearch indexes. Grafana acts as the analytics platform, connecting to Elasticsearch as the datasource and offering interactive dashboards.
 
 In the following sections we will cover the following:
 
- - Logging transformation 
- - Dashboards created
- - Installation
+ - [Transforming NAP logs](transforming-nap-logs) 
+ - [Dashboards](dashboards)
+ - [Installation](installation)
 
-## Logging transformation
-Starting with NAP release 4.3, the **json_log** field includes the Violation details formatted in JSON format. While json_log doesnt provide yet the violation details for all violation types, it makes it significant easier and faster to parse NAP logs with FluentD and Logstash compared to the key/value pairs and the XML violation details that we had earlier.
-Also with each release more violations are getting added to the **json_log** field, which makes it the logical choice for logging the violation details. 
+## Transforming NAP logs
+Starting with NAP release 4.3, the **json_log** field includes the Violation details formatted in JSON. While json_log doesnt provide yet the details for all violation types, it makes it significant easier and faster to parse NAP logs compared to the key/value pairs and the XML violation details.
+Moreover, with each release, more violations are incorporated into the **json_log** field, making it the preferred method for logging violation details.
 
-To check which violations are currently supported with **json_log** field please click "here" 
+To check which violations are currently supported with **json_log** field please click [here](supported_violations.md) 
 
-Below you can see the information of the **json_log** field. While going through the details provided by the **json_log** field, take a closer look on the following variables; `url`, `rawRequest.httpRequest` and the `violations`.
+Below, we outline the contents of the json_log field. Take a closer look on the following variables; `url`, `rawRequest.httpRequest` and the `violations`.
 
 <p align="center">
 <img width="720" src="images/json_log.png"/>
 </p>
 
-The `url` and `rawRequest.httpRequest` have their Base64 encoded while the `violations` provides an array with each violation recorded on that specific transaction.
+The `url` and `rawRequest.httpRequest` are Base64 encoded, while `violations` presents an array with each violation recorded on the transaction.
 
-For the first two we will have FluentD/Logstash Base64 decode them, while for the violations array we will create a separate log for each violation, Base64 decode any field that is encoded and save it to a separate index. In addition to that we will enrich the log with the GeoIP point of the SourceIP so that we can represent to a map the location of the attackers. 
+With the use of Logstash or FluentD we perform the following transformations:
+- Base64 decoding for `url` and `rawRequest.httpRequest`
+- Enriching the log with the GeoIP point of the SourceIP
+- Create separate logs for each item in the `violations` array.
+- Base64 decode the entries within the `violations` array.
 
+> **Note**: Until Bot logs are incorporated into **json_log**, we have manually included them as additional JSON key/value pairs that we are extracting manually.
 
-> **Note**: Until Bot logs are incorporated into **json_log**, we have manually included them as additional key/value pairs and we are extracting them with logstash with additional configuration. 
+We offer two options for log ingestion/transformation: **FluentD** or **Logstash**, each supported by configuration examples to suit your preference and environment. For Logstash, we provide configuration examples tailored for Docker environments, whereas for FluentD, we offer configuration examples optimized for Kubernetes setups. Choose the option that best aligns with your infrastructure and requirements.
+
 
 ## NAP Dashboards
 The Dashboards that we have created so far are:
-- [Main](#overview)
+- [Main](#main-dashboard)
 - [Attack Signatures](#attack-signatures)
 - [Parameter Violations](#parameters-violations)
 - [File Types Violations](#filetype-violations)
@@ -47,7 +51,7 @@ The Dashboards that we have created so far are:
 - [SupportID](#supportid)
 
 
-#### Overview
+### Main Dashboad
 This is the main dashboard that provides an overview of all the violations that have been logged by NGINX App Protect WAF. From this table you can navigate to the other dashboards like SupportID, Attack-Signatures, Parameter Violations, by clicking on the links at the top right corner. Some of the graphs/tables included in this dashboard are:
 - Attacks recorded and mitigated
 - Violation categories
@@ -68,65 +72,56 @@ This is the main dashboard that provides an overview of all the violations that 
 
 For more screenshots go of the **Main Dashboard** click [Here](dashboards/main.md)
 
-#### Attack Signatures
-The Attack Signature dashboard provides details for all the signatures that were triggered by NGINX App Protect WAF. This dashboard gets the information from the decoded index and matches the violation name with `VIOL_ATTACK_SIGNATURE`. Some of the graphs/tables included in this dashboard are:
-- Signature Hits
-- Signature Accuracy and Risk
-- Signatures per Context 
-- Signature details 
-- Signatures per URL/IP/Policy
-- Parameter Names and Values
-- Header Names and Values
-- Cookies Names and Values
-- Logs
+### Attack Signatures
+The Attack Signature dashboard provides details for all the signatures that triggered the `VIOL_ATTACK_SIGNATURE` violation
 
 <p align="center">
 <img width="720" src="images/sig-1.png"/>
 </p>
 
-For more screenshots go of the **Attack Signature Dashboard** click [Here](dashboards/attack_signature.md)
+For more screenshots click [here](dashboards/attack_signature.md)
 
 
-#### Parameter Violations
+### Parameter Violations
 The Parameter Dashboard provides details for all **parameter** related violations including `VIOL_PARAMETER`, `VIOL_PARAMETER_ARRAY_VALUE`,`VIOL_PARAMETER_DATA_TYPE`,`VIOL_PARAMETER_EMPTY_VALUE`,`VIOL_PARAMETER_LOCATION`,`VIOL_PARAMETER_NUMERIC_VALUE`,`VIOL_PARAMETER_STATIC_VALUE`,`VIOL_PARAMETER_VALUE_LENGTH`
 
 <p align="center">
 <img width="720" src="images/param-1.png"/>
 </p>
 
-For more screenshots go of the **Attack Signature Dashboard** click [Here](dashboards/parameter_violations.md)
+For more screenshots go click [here](dashboards/parameter_violations.md)
 
-#### FileType Violations
+### FileType Violations
 The FileType Dashboard provides details for all the file type related violations including `VIOL_FILETYPE`, `VIOL_POST_DATA_LENGTH`,`VIOL_QUERY_STRING_LENGTH`,`VIOL_REQUEST_LENGTH`,`VIOL_URL_LENGTH`. 
 
 <p align="center">
 <img width="720" src="images/ft-1.png"/>
 </p>
 
-For more screenshots go of the **File Type Violations Dashboard** click [Here](dashboards/filetype_violations.md)
+For more screenshots click [here](dashboards/filetype_violations.md)
 
 
-#### Meta-Character Violations
+### Meta-Character Violations
 The Meta-Character Violations Dashboard provides details for all the meta-character related violations including `VIOL_PARAMETER_VALUE_METACHAR`, `VIOL_PARAMETER_NAME_METACHAR`, `VIOL_PARAMETER_URL_METACHAR`.
 
 <p align="center">
 <img width="720" src="images/mt-1.png"/>
 </p>
 
-For more screenshots go of the **Protocol Violations Dashboard** click [Here](dashboards/metacharacter_violations.md)
+For more screenshots click [Hhere](dashboards/metacharacter_violations.md)
 
 
-#### Protocol Violations
+### Protocol Violations
 The Protocol Dashboard provides details for all the protocol related violations including `VIOL_HTTP_PROTOCOL`, `VIOL_EVASION`.
 
 <p align="center">
 <img width="720" src="images/protocol-1.png"/>
 </p>
 
-For more screenshots go of the **Protocol Violations Dashboard** click [Here](dashboards/protocol_violations.md)
+For more screenshots click [here](dashboards/protocol_violations.md)
 
 
-#### SupportID Dashboard
+### SupportID Dashboard
 The SupportID Dashboard provides details for a specific transaction (SupportID) that was logged by NGINX App Protect WAF. These include the following:
 - Client/Server Information (Client IP/Port, Server IP/Port, X-Forwared-For, etc)
 - Violation Details (Outcome, Request Status, Outcome Reson, etc)
@@ -141,13 +136,13 @@ The SupportID Dashboard provides details for a specific transaction (SupportID) 
   <img width="720" src="images/support1.png">
 </p>
 
-For more screenshots go of the **SupportID Violations Dashboard** click [Here](dashboards/supprt_id.md)
+For more screenshots click [Here](dashboards/supprt_id.md)
 
 
 ## Installation
 
-To run this Dashboard you will need to deploy following open source solutions. 
-- Logstash/FluentD
+To run this Dashboard you will need to deploy the following open source solutions:
+- Logstash (or FluentD)
 - Elasticsearch 
 - Grafana
 - Docker
@@ -255,3 +250,36 @@ For NAP working on a Docker or on a VM implementation, please configure the foll
     }
   }
   ```
+
+
+
+### Using FluentD instead of Logstash
+
+1. Remove the logstash from the docker-compose file to save some resources.
+
+2. Go to the fluentd folder of the repo and deploy the services below
+```shell
+kubectl apply -f ns-sa.yaml
+kubectl apply -f configmap.yaml
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
+```
+
+3. Point your nap instance to the fluentd service that runs inside your kubernetes environment. It should be similar to **fluentd-svc.fluentd:8515**
+
+4. **(optional)** Create your own FluentD image
+Currently the existing image `skenderidis/nap-fluentd` has been created based on the instructions from the official FluentD repo (
+https://github.com/fluent/fluentd-kubernetes-daemonset/blob/master/docker-image/v1.16/debian-elasticsearch8/Dockerfile) and we have added 3 additional plugins:
+- **`fluent-plugin-geoip`** that will enrich the GeoIP based on the client's source IP
+- **`fluent-plugin-nginx-nap-split`** that will split the violations array into multiple entries
+- **`fluent-plugin-nginx-nap-decode`** that will base64 decode the values within each violation
+
+If you want to build your own image from scratch, then follow the instructions from the FluentD repo
+(https://github.com/fluent/fluentd-kubernetes-daemonset/blob/master/docker-image/v1.16/debian-elasticsearch8/Dockerfile) 
+on how to create a FluentD image. 
+
+For your reference below you can find the Dockerfile and Gemfile that have been used for creating the current image.
+- [DockerFile](https://github.com/skenderidis/docker-images/blob/main/fuentd/Dockerfile)
+- [Gemfile](https://github.com/skenderidis/docker-images/blob/main/fuentd/Gemfile)
+
+
