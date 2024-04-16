@@ -283,3 +283,11 @@ For your reference below you can find the Dockerfile and Gemfile that have been 
 - [Gemfile](https://github.com/skenderidis/docker-images/blob/main/fuentd/Gemfile)
 
 
+## Support
+
+For support, please open a GitHub issue. Note, the code in this repository is community supported and is not supported by F5 Networks.
+
+
+### License
+[Apache License 2.0](LICENSE)
+ 
