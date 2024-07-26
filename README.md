@@ -9,9 +9,9 @@ The solution employs an ingestion solution (**FluentD** or **Logstash**) for sea
 
 In the following sections we will cover the following:
 
- - [Transforming NAP logs](transforming-nap-logs) 
- - [Dashboards](dashboards)
- - [Installation](installation)
+ - [Transforming NAP logs](#transforming-nap-logs) 
+ - [Dashboards](#nap-dashboards)
+ - [Installation](#installation)
 
 ## Transforming NAP logs
 Starting with NAP release 4.3, the **json_log** field includes the Violation details formatted in JSON. While json_log doesnt provide yet the details for all violation types, it makes it significant easier and faster to parse NAP logs compared to the key/value pairs and the XML violation details.
