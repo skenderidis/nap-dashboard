@@ -202,20 +202,20 @@ TZ=Asia/Dubai && docker-compose up -d
 
 1. Deploy Grafana Dashboards
 
-  To deploy the Grafana Dashboards goto `Import Dashboard` and input the Dashboard ID (as per the following table) on `Import via grafana.com` tab.
-  <p align="center">
-  <img width="500" src="images/grafana-id.png"/>
-  </p>
+    To deploy the Grafana Dashboards goto `Import Dashboard` and input the Dashboard ID (as per the following table) on `Import via grafana.com` tab.
+    <p align="center">
+    <img width="500" src="images/grafana-id.png"/>
+    </p>
 
-  | Dashboard Name                        | Dashboard ID  |  Grafana Source        |   Grafana Website                                                  |
-  | -------------                         | :---:         |-------------           |  :---:                                                             |
-  | Main Dashboard                        | 20052         | WAF-Logs               | <a href="https://grafana.com/grafana/dashboards/20052"> Link </a>  |
-  | SupportIDs                            | 20055         | WAF-Logs , WAF-Decoded | <a href="https://grafana.com/grafana/dashboards/20055"> Link </a>  |
-  | Attack Signatures                     | 20048         | WAF-Decoded            | <a href="https://grafana.com/grafana/dashboards/20048"> Link </a>  |
-  | File Types                            | 20049         | WAF-Logs               | <a href="https://grafana.com/grafana/dashboards/20049"> Link </a>  |
-  | Meta Characters                       | 20053         | WAF-Logs               | <a href="https://grafana.com/grafana/dashboards/20053"> Link </a>  |
-  | Parameters                            | 20054         | WAF-Logs               | <a href="https://grafana.com/grafana/dashboards/20054"> Link </a>  |
-  | Protocol                              | 20892         | WAF-Logs               | <a href="https://grafana.com/grafana/dashboards/20892"> Link </a>  |
+    | Dashboard Name                        | Dashboard ID  |  Grafana Source        |   Grafana Website                                                  |
+    | -------------                         | :---:         |-------------           |  :---:                                                             |
+    | Main Dashboard                        | 20052         | WAF-Logs               | <a href="https://grafana.com/grafana/dashboards/20052"> Link </a>  |
+    | SupportIDs                            | 20055         | WAF-Logs , WAF-Decoded | <a href="https://grafana.com/grafana/dashboards/20055"> Link </a>  |
+    | Attack Signatures                     | 20048         | WAF-Decoded            | <a href="https://grafana.com/grafana/dashboards/20048"> Link </a>  |
+    | File Types                            | 20049         | WAF-Logs               | <a href="https://grafana.com/grafana/dashboards/20049"> Link </a>  |
+    | Meta Characters                       | 20053         | WAF-Logs               | <a href="https://grafana.com/grafana/dashboards/20053"> Link </a>  |
+    | Parameters                            | 20054         | WAF-Logs               | <a href="https://grafana.com/grafana/dashboards/20054"> Link </a>  |
+    | Protocol                              | 20892         | WAF-Logs               | <a href="https://grafana.com/grafana/dashboards/20892"> Link </a>  |
 
 ### Configure Logging profile for NAP
 
